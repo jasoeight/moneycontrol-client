@@ -19,7 +19,7 @@
             class="elevation-1"
         >
             <template slot="items" slot-scope="props">
-                <td>{{ props.item.owner.name }}</td>
+                <td>{{ props.item.user.name }}</td>
                 <td>{{ props.item.account.name }}</td>
                 <td>{{ formattedDate(props.item.date) }}</td>
                 <td>{{ formattedType(props.item.type) }}</td>
@@ -62,9 +62,9 @@ export default {
             },
             headers: [
                 {
-                    text: 'Owner',
+                    text: 'User',
                     sortable: true,
-                    value: 'owner'
+                    value: 'user'
                 },
                 {
                     text: 'Account',
@@ -122,7 +122,7 @@ export default {
                 limit: rowsPerPage
             })
                 .then(({ data }) => {
-                    this.loadFinished(data.docs, data.total);
+                    this.loadFinished(data.rows, data.count);
                 })
                 .catch(() => {
                     this.loadFinished([], 0);

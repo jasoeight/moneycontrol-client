@@ -44,8 +44,8 @@ export default {
         },
         onEdit(item) {
             item = _cloneDeep(item);
-            item.owner = item.owner._id;
-            item.account = item.account._id;
+            item.userId = item.user._id;
+            item.accountId = item.account._id;
             this.form = item;
             this.showForm = true;
         },

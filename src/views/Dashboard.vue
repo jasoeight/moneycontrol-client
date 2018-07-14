@@ -4,18 +4,18 @@
             <stat-accounts />
         </v-flex>
         <v-flex xs12 sm6 md6 pa-2>
-            <stat-owners />
+            <stat-users />
         </v-flex>
     </layout-main>
 </template>
 
 <script>
 import StatAccounts from '@/components/dashboard/StatAccounts';
-import StatOwners from '@/components/dashboard/StatOwners';
+import StatUsers from '@/components/dashboard/StatUsers';
 export default {
     components: {
         StatAccounts,
-        StatOwners
+        StatUsers
     }
 };
 </script>

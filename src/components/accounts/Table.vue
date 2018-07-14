@@ -86,7 +86,7 @@ export default {
                 limit: rowsPerPage
             })
                 .then(({ data }) => {
-                    this.loadFinished(data.docs, data.total);
+                    this.loadFinished(data.rows, data.count);
                 })
                 .catch(() => {
                     this.loadFinished([], 0);
@@ -118,7 +118,7 @@ export default {
             return new Promise((resolve, reject) => {
                 this.fetchAllTransactions({ account: id, limit: 1, noPopulate: 1 })
                     .then(({ data }) => {
-                        if (data.total === 0) {
+                        if (data.count === 0) {
                             resolve();
                             return;
                         }

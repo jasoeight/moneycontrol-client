@@ -14,7 +14,7 @@
                 v-for="(stat, key) in stats"
                 :key="key"
             >
-                <v-flex xs6>{{ stat.owner.name}}</v-flex>
+                <v-flex xs6>{{ stat.user.name}}</v-flex>
                 <v-flex xs6 class="text-xs-right">
                     <h3 class="grey--text">{{ formattedAmount(stat.amount) }}</h3>
                 </v-flex>
@@ -39,7 +39,7 @@ export default {
         ...transactionsMethods,
         load() {
             this.loading = true;
-            this.fetchStatsOwner().then(({ data }) => {
+            this.fetchStatsUser().then(({ data }) => {
                 this.loading = false;
                 this.stats = data;
             });

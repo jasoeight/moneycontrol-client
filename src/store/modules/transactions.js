@@ -13,8 +13,8 @@ export const actions = {
     fetchStatsAccount({ rootGetters }) {
         return api(rootGetters).get(`${API_PATH}/stats/account`);
     },
-    fetchStatsOwner({ rootGetters }) {
-        return api(rootGetters).get(`${API_PATH}/stats/owner`);
+    fetchStatsUser({ rootGetters }) {
+        return api(rootGetters).get(`${API_PATH}/stats/user`);
     },
     fetchAllTransactions({ rootGetters }, params = {}) {
         return api(rootGetters).get(API_PATH, { params });
@@ -28,8 +28,8 @@ export const actions = {
     saveTransaction({ rootGetters }, transaction) {
         const id = transaction._id;
         transaction = _pick(transaction, [
-            'account',
-            'owner',
+            'accountId',
+            'userId',
             'description',
             'amount',
             'date',

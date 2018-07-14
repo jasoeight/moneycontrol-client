@@ -9,5 +9,5 @@ export const transactionsMethods = mapActions('transactions', [
     'fetchOneTransaction',
     'fetchAllTags',
     'fetchStatsAccount',
-    'fetchStatsOwner'
+    'fetchStatsUser'
 ]);

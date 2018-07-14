@@ -16,14 +16,14 @@
                 v-model="valid"
             >
                 <v-select
-                    v-model="value.owner"
-                    :items="owners"
-                    label="Owners"
+                    v-model="value.userId"
+                    :items="users"
+                    label="Users"
                     item-text="name"
                     item-value="_id"
                 />
                 <v-select
-                    v-model="value.account"
+                    v-model="value.accountId"
                     :items="accounts"
                     label="Accounts"
                     item-text="name"
@@ -106,7 +106,7 @@ export default {
         return {
             loading: true,
             valid: true,
-            owners: [],
+            users: [],
             accounts: [],
             tags: [],
             datepickerMenu: false,
@@ -162,8 +162,8 @@ export default {
                 this.fetchAllAccounts(),
                 this.fetchAllTags()
             ]).then(([users, accounts, tags]) => {
-                this.owners = users.data.docs;
-                this.accounts = accounts.data.docs;
+                this.users = users.data.rows;
+                this.accounts = accounts.data.rows;
                 this.tags = tags.data;
                 this.loading = false;
                 this.prepareNew();
@@ -175,8 +175,8 @@ export default {
             }
 
             this.$emit('input', {
-                owner: this.owners[0]._id,
-                account: this.accounts[0]._id,
+                userId: this.users[0]._id,
+                accountId: this.accounts[0]._id,
                 date: dfFormat(new Date()),
                 type: 'expense',
                 tags: [],
