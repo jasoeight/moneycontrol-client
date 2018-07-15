@@ -1,6 +1,5 @@
 <template>
     <layout-main row wrap>
-
         <v-flex xs12 class="my-3">
             <transaction-table
                 ref="table"

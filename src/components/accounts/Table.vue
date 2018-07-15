@@ -116,7 +116,11 @@ export default {
         },
         hasNoTransactions(id) {
             return new Promise((resolve, reject) => {
-                this.fetchAllTransactions({ account: id, limit: 1, noPopulate: 1 })
+                this.fetchAllTransactions({
+                    search: { accountId: id },
+                    limit: 1,
+                    noPopulate: 1
+                })
                     .then(({ data }) => {
                         if (data.count === 0) {
                             resolve();
