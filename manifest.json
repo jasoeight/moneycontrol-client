@@ -1,20 +1,40 @@
 {
-  "name": "client",
-  "short_name": "client",
+  "name": "MoneyControl",
+  "short_name": "MC",
   "icons": [
     {
-      "src": "/img/icons/android-chrome-192x192.png",
-      "sizes": "192x192",
+      "src": "/img/icons/icon-16x16.png",
+      "sizes": "16x16",
       "type": "image/png"
     },
     {
-      "src": "/img/icons/android-chrome-512x512.png",
+      "src": "/img/icons/icon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/icon-64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#4DBA87"
+  "background_color": "#1976d2",
+  "theme_color": "#1976d2"
 }
