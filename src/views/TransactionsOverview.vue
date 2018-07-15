@@ -1,5 +1,6 @@
 <template>
     <layout-main row wrap>
+
         <v-flex xs12 class="my-3">
             <transaction-table
                 ref="table"
@@ -20,12 +21,11 @@
 
 <script>
 import TransactionTable from '@/components/transactions/Table';
-import TransactionForm from '@/components/transactions/Form';
 import _cloneDeep from 'lodash/cloneDeep';
 export default {
     components: {
         TransactionTable,
-        TransactionForm
+        TransactionForm: () => import('@/components/transactions/Form')
     },
     data() {
         return {

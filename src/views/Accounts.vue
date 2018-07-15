@@ -20,12 +20,11 @@
 
 <script>
 import AccountTable from '@/components/accounts/Table';
-import AccountForm from '@/components/accounts/Form';
 import _cloneDeep from 'lodash/cloneDeep';
 export default {
     components: {
         AccountTable,
-        AccountForm
+        AccountForm: () => import('@/components/accounts/Form')
     },
     data() {
         return {

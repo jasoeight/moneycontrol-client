@@ -20,12 +20,11 @@
 
 <script>
 import UserTable from '@/components/users/Table';
-import UserForm from '@/components/users/Form';
 import _cloneDeep from 'lodash/cloneDeep';
 export default {
     components: {
         UserTable,
-        UserForm
+        UserForm: () => import('@/components/users/Form')
     },
     data() {
         return {
