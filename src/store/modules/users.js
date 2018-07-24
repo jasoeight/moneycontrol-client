@@ -7,19 +7,19 @@ export const getters = {};
 export const mutations = {};
 
 export const actions = {
-    fetchAllUsers({ rootGetters }, params = {}) {
-        return api(rootGetters).get(API_PATH, { params });
+    fetchAllUsers(context, params = {}) {
+        return api().get(API_PATH, { params });
     },
-    deleteUser({ rootGetters }, id) {
-        return api(rootGetters).delete(`${API_PATH}/${id}`);
+    deleteUser(context, id) {
+        return api().delete(`${API_PATH}/${id}`);
     },
-    saveUser({ rootGetters }, user) {
+    saveUser(context, user) {
         const id = user._id;
         user = _pick(user, ['name', 'email', 'password', 'all']);
 
         if (id) {
-            return api(rootGetters).put(`${API_PATH}/${id}`, user);
+            return api().put(`${API_PATH}/${id}`, user);
         }
-        return api(rootGetters).post(`${API_PATH}`, user);
+        return api().post(`${API_PATH}`, user);
     }
 };
