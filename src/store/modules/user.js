@@ -16,7 +16,8 @@ export const mutations = {
 export const getters = {
     isLoggedIn: state => !_isEmpty(state.currentUser),
     currentUser: state => state.currentUser,
-    userToken: state => state.currentUser.token
+    userToken: state => state.currentUser.token,
+    refreshToken: state => state.currentUser.refreshToken
 };
 
 export const actions = {
@@ -26,10 +27,21 @@ export const actions = {
 
     logIn({ commit }, payload) {
         return api()
-            .post(API_PATH, payload)
+            .post(`${API_PATH}/login`, payload)
             .then(({ data }) => {
                 commit('SET_CURRENT_USER', data);
-                return true;
+                return data;
+            });
+    },
+
+    refreshToken({ commit, getters }) {
+        return api()
+            .post(`${API_PATH}/token`, {
+                refreshToken: getters.refreshToken
+            })
+            .then(({ data }) => {
+                commit('SET_CURRENT_USER', data);
+                return data;
             });
     },
 

@@ -7,25 +7,25 @@ export const getters = {};
 export const mutations = {};
 
 export const actions = {
-    fetchAllTags({ rootGetters }) {
-        return api(rootGetters).get(`${API_PATH}/tags`);
+    fetchAllTags() {
+        return api().get(`${API_PATH}/tags`);
     },
-    fetchStatsAccount({ rootGetters }) {
-        return api(rootGetters).get(`${API_PATH}/stats/account`);
+    fetchStatsAccount() {
+        return api().get(`${API_PATH}/stats/account`);
     },
-    fetchStatsUser({ rootGetters }) {
-        return api(rootGetters).get(`${API_PATH}/stats/user`);
+    fetchStatsUser() {
+        return api().get(`${API_PATH}/stats/user`);
     },
-    fetchAllTransactions({ rootGetters }, params = {}) {
-        return api(rootGetters).get(API_PATH, { params });
+    fetchAllTransactions(context, params = {}) {
+        return api().get(API_PATH, { params });
     },
-    fetchOneTransaction({ rootGetters }, id) {
-        return api(rootGetters).get(`${API_PATH}/${id}`);
+    fetchOneTransaction(context, id) {
+        return api().get(`${API_PATH}/${id}`);
     },
-    deleteTransaction({ rootGetters }, id) {
-        return api(rootGetters).delete(`${API_PATH}/${id}`);
+    deleteTransaction(context, id) {
+        return api().delete(`${API_PATH}/${id}`);
     },
-    saveTransaction({ rootGetters }, transaction) {
+    saveTransaction(context, transaction) {
         const id = transaction._id;
         transaction = _pick(transaction, [
             'accountId',
@@ -38,9 +38,9 @@ export const actions = {
         ]);
 
         if (id) {
-            return api(rootGetters).put(`${API_PATH}/${id}`, transaction);
+            return api().put(`${API_PATH}/${id}`, transaction);
         }
 
-        return api(rootGetters).post(`${API_PATH}`, transaction);
+        return api().post(`${API_PATH}`, transaction);
     }
 };

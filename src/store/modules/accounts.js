@@ -7,22 +7,22 @@ export const getters = {};
 export const mutations = {};
 
 export const actions = {
-    fetchAllAccounts({ rootGetters }, params = {}) {
-        return api(rootGetters).get(API_PATH, { params });
+    fetchAllAccounts(context, params = {}) {
+        return api().get(API_PATH, { params });
     },
-    fetchOneAccount({ rootGetters }, id) {
-        return api(rootGetters).get(`${API_PATH}/${id}`);
+    fetchOneAccount(context, id) {
+        return api().get(`${API_PATH}/${id}`);
     },
-    deleteAccount({ rootGetters }, id) {
-        return api(rootGetters).delete(`${API_PATH}/${id}`);
+    deleteAccount(context, id) {
+        return api().delete(`${API_PATH}/${id}`);
     },
-    saveAccount({ rootGetters }, account) {
+    saveAccount(context, account) {
         const id = account._id;
         account = _pick(account, ['name']);
 
         if (id) {
-            return api(rootGetters).put(`${API_PATH}/${id}`, account);
+            return api().put(`${API_PATH}/${id}`, account);
         }
-        return api(rootGetters).post(`${API_PATH}`, account);
+        return api().post(`${API_PATH}`, account);
     }
 };
